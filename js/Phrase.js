@@ -1,6 +1,5 @@
 /*
 The Phrase class has a constructor that receives a 'phrase' parameter.
-It sets the phrase to lower case.
 */
 class Phrase {
   constructor(phrase) {
@@ -23,7 +22,7 @@ class Phrase {
   
   /*
   The checkLetter method:
-  * Accepts a letter as an argument.
+  * Accepts a letter as a parameter.
   * If the active phrase includes the given letter, it calls the showMatchedLetter method.
   * Else, it returns 'false'.
   */
@@ -38,7 +37,7 @@ class Phrase {
 
   /*
   The showMatchedLetter method:
-  * Accepts a letter as an argument.
+  * Accepts a letter as a parameter.
   * Removes the 'hide' class and adds the 'show' class to all the matching letters in the phrase.
   */
   showMatchedLetter(letter) {

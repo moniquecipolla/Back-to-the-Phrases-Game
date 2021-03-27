@@ -25,7 +25,7 @@ The createPhrases method:
 
 /*
 The getRandomPhrase method:
-* Selects a random phrase from phrases property and creates a Phrase object.
+* Selects a random phrase from phrases property and instantiates a Phrase.
 * Returns the created random phrase object.
 */
   getRandomPhrase() {
@@ -46,7 +46,8 @@ The startGame method:
   }
 
   /*
-  The handleInteraction method accepts an input parameter and branches accordingly.
+  The handleInteraction method accepts an input parameter (i.e., a keypress or click from the event listeners in app.js) and branches accordingly.
+  * It passes the input as a parameter to the checkLetter method.
   * Conditionally checks if the input matches a QWERTY key and the key is not disabled.
     * If the checkLetter method returns false, the key is disabled and given the 'wrong' class, and the removeLife method is called.
     * Else, the key is disabled and given the 'chosen' class, and the checkForWin method is called.
