@@ -47,9 +47,12 @@ The startGame method:
 
   /*
   The handleInteraction method accepts an input parameter and branches accordingly.
+  * Conditionally checks if the input matches a QWERTY key and the key is not disabled.
+  * If the checkLetter method returns false, the key is disabled and given the 'wrong' class, and the removeLife method is called.
+  * Else, the key is disabled and given the 'chosen' class, and the checkForWin method is called.
   */
   handleInteraction(input) {
-    this.activePhrase.checkLetter(input); //The input is passed as an parameter to the checkLetter method.
+    this.activePhrase.checkLetter(input);
     Array.from(document.getElementsByClassName('key')).forEach(key => { //Creating an array of the QWERTY keys to loop through.
       if (key.textContent === input && key.disabled !== true) {
         if (this.activePhrase.checkLetter(input) === false) {
@@ -61,7 +64,7 @@ The startGame method:
           key.classList.add('chosen');
           this.checkForWin();
           if (this.checkForWin()) {
-            this.gameOver(true);
+            this.gameOver(true); //If the checkForWin method returns true, the gameOver method is called and passed the 'true' parameter.
           }
         }
       }
@@ -121,7 +124,7 @@ The startGame method:
   * Sets the 'missed' count to 0.
   */
   resetGame() {
-    this.activePhrase.clearPhrase();
+    document.getElementById('phrase').children[0].querySelectorAll('*').forEach(child => child.remove()); //Adapted from https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
     this.activePhrase = null;
     Array.from(document.getElementsByClassName('key')).forEach(key => {
       key.disabled = false;
