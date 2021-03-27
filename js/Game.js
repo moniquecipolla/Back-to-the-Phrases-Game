@@ -25,7 +25,7 @@ The createPhrases method:
 
 /*
 The getRandomPhrase method:
-* Selects a random phrase from phrases property and instantiates a Phrase.
+* Selects a random phrase from phrases property.
 * Returns the created random phrase object.
 */
   getRandomPhrase() {
@@ -37,7 +37,7 @@ The getRandomPhrase method:
 /*
 The startGame method:
 * Hides the overlay element.
-* Begins the game by selecting a random phrase and displaying it to the player.
+* Begins the game by selecting a random phrase, instantiating a new Phrase, and displaying it to the player.
 */
   startGame() {
     document.getElementById('overlay').style.display = 'none';
