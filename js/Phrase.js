@@ -37,11 +37,11 @@ class Phrase {
   * Removes the 'hide' class and adds the 'show' class to all the matching letters in the phrase.
   */
   showMatchedLetter(letter) {
-    let correctLetter = document.getElementsByClassName(letter);
-    for (let i = 0; i < correctLetter.length; i++) {
-      if (correctLetter[i].innerHTML === letter) {
-        correctLetter[i].classList.remove('hide');
-        correctLetter[i].classList.add('show');
+    let letters = document.getElementsByClassName(letter);
+    for (let i = 0; i < letters.length; i++) {
+      if (letters[i].innerHTML === letter) {
+        letters[i].classList.remove('hide');
+        letters[i].classList.add('show');
       }
     }
   }
