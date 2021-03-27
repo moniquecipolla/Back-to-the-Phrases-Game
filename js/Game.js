@@ -66,7 +66,7 @@ The startGame method:
           this.activePhrase.showMatchedLetter(input);
           this.checkForWin();
           if (this.checkForWin()) {
-            this.gameOver(true); //If the checkForWin method returns true, the gameOver method is called and passed the 'true' parameter.
+            this.gameOver('win'); //If the checkForWin method returns true, the gameOver method is called and passed the 'win' parameter.
           }
         }
       }
@@ -87,13 +87,13 @@ The startGame method:
   The removeLife method:
   * Increases the 'missed' count.
   * Replaces the liveHeart image with the lostHeart image.
-  * Passes the argument 'false' to the gameOver method if the 'missed' number is equal to 5 (the total number of lives).
+  * Passes the parameter 'lose' to the gameOver method if the 'missed' number is equal to 5 (the total number of lives).
   */
   removeLife() {
     this.missed += 1;
     document.getElementsByClassName('tries')[`${this.missed-1}`].firstElementChild.src = 'images/lostHeart.png';
     if (this.missed === 5) {
-      this.gameOver(false);
+      this.gameOver('lose');
     }
   }
 
@@ -101,12 +101,12 @@ The startGame method:
  The gameOver method:
  * Displays the overlay element.
  * If the passed result parameter is equal to true, it updates the game over message and class name to win, as well as updating the btn__reset text.
- * Else if the passed parameter is not equal to true (i.e., is false), it updates the game over message and class name to lose as well as updating the btn__reset text.
+ * Else if the passed parameter is not equal to true (i.e., is 'lose'), it updates the game over message and class name to lose as well as updating the btn__reset text.
  * Calls the resetGame method.
  */
   gameOver(result) {
     document.getElementById('overlay').style.display = '';
-    if (result === true) {
+    if (result === 'win') {
       document.getElementById('game-over-message').className = 'win';
       document.getElementById('game-over-message').innerHTML = `<br><i>Wow, you reached 88 miles per hour!</i> 🏎️💨 <p>Nailed it! The phrase was "${this.activePhrase.phrase.toUpperCase()}"!</p>`;
       document.getElementById('btn__reset').textContent = 'Go back to the future & try again?';
