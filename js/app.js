@@ -1,4 +1,3 @@
-//Declaring Game variable.
 let game;
 
 //Adds an event listener to start button, instantiating a new Game and calling the startGame method.
@@ -14,7 +13,7 @@ document.getElementById('qwerty').addEventListener('click', (event) => {
   }
 });
 
-//Adds an event listener for keydown events; conditionally checks whether the overlay screen is present.
+//Adds an event listener for keydown events; conditionally checks whether the overlay screen is displayed.
 document.addEventListener('keydown', (event) => {
   if (document.getElementById('overlay').style.display === 'none') 
     game.handleInteraction(event.key); //Passes the key value to the handleInteraction method.

@@ -48,8 +48,8 @@ The startGame method:
   /*
   The handleInteraction method accepts an input parameter and branches accordingly.
   * Conditionally checks if the input matches a QWERTY key and the key is not disabled.
-  * If the checkLetter method returns false, the key is disabled and given the 'wrong' class, and the removeLife method is called.
-  * Else, the key is disabled and given the 'chosen' class, and the checkForWin method is called.
+    * If the checkLetter method returns false, the key is disabled and given the 'wrong' class, and the removeLife method is called.
+    * Else, the key is disabled and given the 'chosen' class, and the checkForWin method is called.
   */
   handleInteraction(input) {
     this.activePhrase.checkLetter(input);

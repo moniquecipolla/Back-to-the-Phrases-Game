@@ -39,7 +39,7 @@ class Phrase {
   /*
   The showMatchedLetter method:
   * Accepts a letter as an argument.
-  * Removes the 'hide' class and adds the 'show' class to all the matching letters in the phrase..
+  * Removes the 'hide' class and adds the 'show' class to all the matching letters in the phrase.
   */
   showMatchedLetter(letter) {
     let correctLetter = document.getElementsByClassName(letter);
@@ -49,15 +49,6 @@ class Phrase {
         correctLetter[i].classList.add('show');
       }
     }
-  }
-
-  /*
-  The clearPhrase method:
-  * Removes any list items in the UL of the 'phrase' div.
-  * Sets the active phrase to null.
-  */
-  clearPhrase() {
-    document.getElementById('phrase').children[0].querySelectorAll('*').forEach(child => child.remove()); //from https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
   }
 
 }
