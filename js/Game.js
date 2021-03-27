@@ -30,7 +30,7 @@ The getRandomPhrase method:
 */
   getRandomPhrase() {
     let randomNumber = Math.floor(Math.random() * this.phrases.length);
-    const randomPhrase = new Phrase(this.phrases[randomNumber]);
+    const randomPhrase = this.phrases[randomNumber];
     return randomPhrase;
   }
 
@@ -41,7 +41,7 @@ The startGame method:
 */
   startGame() {
     document.getElementById('overlay').style.display = 'none';
-    this.activePhrase = this.getRandomPhrase();
+    this.activePhrase = new Phrase(this.getRandomPhrase());
     this.activePhrase.addPhraseToDisplay();
   }
 
