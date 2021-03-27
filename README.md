@@ -1,4 +1,4 @@
-# Back-to-the-Phrases-Game
+# Back to the Phrases Game
 Created for Treehouse FSJS Unit 4.
 
 Welcome to the **Back to the Phrases** game! This is a *Back to the Future* themed phrase finder game.
