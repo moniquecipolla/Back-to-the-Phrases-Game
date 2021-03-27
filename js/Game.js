@@ -50,19 +50,20 @@ The startGame method:
   * It passes the input as a parameter to the checkLetter method.
   * Conditionally checks if the input matches a QWERTY key and the key is not disabled.
     * If the checkLetter method returns false, the key is disabled and given the 'wrong' class, and the removeLife method is called.
-    * Else, the key is disabled and given the 'chosen' class, and the checkForWin method is called.
+    * Else, the key is disabled and given the 'chosen' class, and the showMatchedLetter and checkForWin methods are called.
   */
   handleInteraction(input) {
     this.activePhrase.checkLetter(input);
     Array.from(document.getElementsByClassName('key')).forEach(key => { //Creating an array of the QWERTY keys to loop through.
       if (key.textContent === input && key.disabled !== true) {
-        if (this.activePhrase.checkLetter(input) === false) {
+        if (this.activePhrase.checkLetter(input) !== true) {
           key.disabled = true;
           key.classList.add('wrong');
           this.removeLife();
       } else {
           key.disabled = true;
           key.classList.add('chosen');
+          this.activePhrase.showMatchedLetter(input);
           this.checkForWin();
           if (this.checkForWin()) {
             this.gameOver(true); //If the checkForWin method returns true, the gameOver method is called and passed the 'true' parameter.

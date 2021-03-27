@@ -23,15 +23,11 @@ class Phrase {
   /*
   The checkLetter method:
   * Accepts a letter as a parameter.
-  * If the active phrase includes the given letter, it calls the showMatchedLetter method.
-  * Else, it returns 'false'.
+  * If the active phrase includes the given letter, it returns true.
   */
   checkLetter(letter) { 
      if (this.phrase.includes(letter)) {
-      this.showMatchedLetter(letter); 
-     }
-     else {
-       return false;
+      return true; 
      }
   }
 
