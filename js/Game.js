@@ -1,12 +1,11 @@
 /*
-The Game class has a constructor method with 4 properties.
+The Game class has a constructor method with 3 properties.
 */
 class Game {
   constructor () {
     this.missed = 0; //This property keeps track of how many incorrect guesses the player makes.
     this.phrases = this.createPhrases(); //This property calls the createPhrases method to create an array of 5 phrase objects.
     this.activePhrase = null; //This property stores the randomly selected active phrase.
-    this.keys = Array.from(document.getElementsByClassName('key')); //This property stores the onscreen QWERTY key buttons in an array.
   }
 
 /*
@@ -51,28 +50,19 @@ The startGame method:
   */
   handleInteraction(input) {
     this.activePhrase.checkLetter(input); //The input is passed as an parameter to the checkLetter method.
-    this.keys.forEach(key => {
-      /*
-      If the input matches the textContent of a key button *and* the checkLetter method returns false:
-      * The corresponding key is disabled and given the 'wrong' class.
-      * The removeLife method is called.
-      */
-      if (key.textContent === input && this.activePhrase.checkLetter(input) === false) {
-        key.disabled = true;
-        key.classList.add('wrong');
-        this.removeLife();
-      /*
-      Else, if the input matches the textContent of a key button:
-      * The corresponding key is disabled and given the 'chosen' class.
-      * The checkForWin method is called.
-      * If the checkForWin method returns true, the gameOver method is called and passed the parameter 'true'.
-      */
-      } else if (key.textContent === input) {
-        key.disabled = true;
-        key.classList.add('chosen');
-        this.checkForWin();
-        if (this.checkForWin()) {
-          this.gameOver(true);
+    Array.from(document.getElementsByClassName('key')).forEach(key => { //Creating an array of the QWERTY keys to loop through.
+      if (key.textContent === input && key.disabled !== true) {
+        if (this.activePhrase.checkLetter(input) === false) {
+          key.disabled = true;
+          key.classList.add('wrong');
+          this.removeLife();
+      } else {
+          key.disabled = true;
+          key.classList.add('chosen');
+          this.checkForWin();
+          if (this.checkForWin()) {
+            this.gameOver(true);
+          }
         }
       }
     });
@@ -133,7 +123,7 @@ The startGame method:
   resetGame() {
     this.activePhrase.clearPhrase();
     this.activePhrase = null;
-    this.keys.forEach(key => {
+    Array.from(document.getElementsByClassName('key')).forEach(key => {
       key.disabled = false;
       key.classList.remove('wrong');
       key.classList.remove('chosen');
